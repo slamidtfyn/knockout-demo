@@ -1,4 +1,4 @@
-// Class to represent a row in the seat reservations grid
+// Class to represent a row in view model
 function Item(id) {
     var self = this;
     self.id = id;
@@ -8,20 +8,20 @@ function Item(id) {
 function ItemsViewModel() {
     var self = this;
 
-    // Non-editable catalog data - would come from the server
-
     // Editable data
     self.myItems = ko.observableArray([
         new Item(1),
         new Item(2)
     ]);
 
+    // Add item
     self.add = ()=>{ 
         self.myItems.push(new Item(self.myItems().length));
         console.log("click");
      }
 }
 
+//init binding to the html page
 ko.applyBindings(new ItemsViewModel());
 
 
